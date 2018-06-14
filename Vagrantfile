@@ -2,6 +2,11 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
+  if Vagrant.has_plugin?("vagrant-proxyconf")
+    config.proxy.http     = "http://10.0.2.2:1087/"
+    config.proxy.https    = "http://10.0.2.2:1087/"
+  end
+
   config.vm.box = "centos/7"
   config.vm.provision "shell", path: "provision/docker_install.sh"
 
