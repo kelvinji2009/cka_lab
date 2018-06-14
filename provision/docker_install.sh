@@ -14,10 +14,10 @@ yum-config-manager \
     https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 
 yum -y install docker-ce
-#yum -y install --setopt=obsoletes=0 docker-ce-17.03.0.ce-1.el7.centos docker-ce-selinux-17.03.0.ce-1.el7.centos
 systemctl enable docker
 systemctl start docker
 
+# Control docker with systemd: http/https proxy
 mkdir -p /etc/systemd/system/docker.service.d
 
 touch /etc/systemd/system/docker.service.d/http-proxy.conf
